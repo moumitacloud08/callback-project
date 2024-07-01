@@ -19,3 +19,9 @@ ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator() {
 				return a * b;
 			}
 		};
+		
+callback:- Lambda Expression
+ExpressionEvaluator expressionEvaluator = (a, b) -> a + b;
+
+callback:- Method reference
+ExpressionEvaluator expressionEvaluator = this:: powEvaluator;

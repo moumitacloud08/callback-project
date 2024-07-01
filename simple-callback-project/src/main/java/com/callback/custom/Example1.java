@@ -17,19 +17,28 @@ public class Example1 {
 
 		// ExpressionEvaluator expressionEvaluator = new AddExpressionEvaluator();
 		// ExpressionEvaluator expressionEvaluator = new DecoratedValuePrinter();
-		ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator() {
+//		ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator() {
+//
+//			@Override
+//			public int evaluate(int a, int b) {
+//				return a * b;
+//			}
+//		};
 
-			@Override
-			public int evaluate(int a, int b) {
-				return a * b;
-			}
-		};
+		//ExpressionEvaluator expressionEvaluator = (a, b) -> a + b;
+		// ExpressionEvaluator expressionEvaluator = (a,b) -> a-b;
+		
+		ExpressionEvaluator expressionEvaluator = this:: powEvaluator;
 
 		ValuePrinter valuePrinter = new StandardValuePrinter();
 		// ValuePrinter valuePrinter = new DecoratedValuePrinter();
 
 		NumbersEvaluator numberEvaluator = new NumbersEvaluator();
 		numberEvaluator.evaluate(4, expressionEvaluator, valuePrinter);
+	}
+
+	private int powEvaluator(int a, int b) {
+		return (int) Math.pow(a, b);
 	}
 
 }
